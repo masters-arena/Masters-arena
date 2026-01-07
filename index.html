@@ -2,33 +2,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Fire Tournament | Register Now</title>
+  <title>Masters Arena | Free Fire Tournament</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-    body { margin: 0; background: #ffffff; color: #b30000; overflow-x: hidden; }header {
-  background: linear-gradient(135deg, #b30000, #ff3333);
-  color: #ffffff;
-  padding: 40px 20px;
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #1a0000, #000000);
+      color: #ffffff;
+      overflow-x: hidden;
+    }header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  animation: slideDown 1s ease;
+  background: linear-gradient(135deg, #b30000, #ff0033);
+  animation: glowBG 6s infinite alternate;
+  padding: 20px;
 }
 
-@keyframes slideDown {
-  from { transform: translateY(-50px); opacity: 0; }
+@keyframes glowBG {
+  from { box-shadow: inset 0 0 40px rgba(255,0,0,0.4); }
+  to { box-shadow: inset 0 0 80px rgba(255,0,0,0.8); }
+}
+
+header h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+  animation: fadeDown 1.2s ease;
+}
+
+header p {
+  font-size: 18px;
+  opacity: 0.95;
+  animation: fadeUp 1.4s ease;
+}
+
+@keyframes fadeDown {
+  from { transform: translateY(-40px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
-}
-
-.container { padding: 20px; max-width: 1100px; margin: auto; }
-
-.card {
-  border: 2px solid #b30000;
-  border-radius: 18px;
-  padding: 35px 25px;
-  margin-top: 40px;
-  text-align: center;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-  animation: fadeUp 1.2s ease;
 }
 
 @keyframes fadeUp {
@@ -36,117 +50,110 @@
   to { transform: translateY(0); opacity: 1; }
 }
 
-h1, h2 { margin-bottom: 10px; }
-
-.highlight {
+.cta-btn {
+  margin-top: 30px;
+  padding: 16px 40px;
   font-size: 18px;
-  font-weight: 600;
-  margin: 10px 0 20px;
-}
-
-button {
-  background: linear-gradient(135deg, #b30000, #ff3333);
-  color: #ffffff;
+  border-radius: 60px;
   border: none;
-  padding: 15px 30px;
-  font-size: 17px;
-  border-radius: 50px;
   cursor: pointer;
-  margin: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-button:hover {
-  transform: scale(1.08);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-}
-
-.note { font-size: 14px; color: #444; margin-top: 12px; }
-
-.popup {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.7);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-.popup-content {
   background: #ffffff;
   color: #b30000;
-  padding: 30px;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(255,255,255,0.6);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 15px rgba(255,255,255,0.4); }
+  50% { transform: scale(1.08); box-shadow: 0 0 30px rgba(255,255,255,0.8); }
+  100% { transform: scale(1); box-shadow: 0 0 15px rgba(255,255,255,0.4); }
+}
+
+section {
+  padding: 70px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,0,0,0.4);
   border-radius: 20px;
-  width: 92%;
-  max-width: 450px;
+  padding: 35px;
   text-align: center;
-  animation: scaleIn 0.4s ease;
+  box-shadow: 0 0 25px rgba(255,0,0,0.3);
+  animation: fadeUp 1.2s ease;
 }
 
-@keyframes scaleIn {
-  from { transform: scale(0.7); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+.card h2 { margin-bottom: 10px; }
+
+.card p { color: #ddd; }
+
+.register-btn {
+  margin-top: 25px;
+  padding: 14px 32px;
+  border-radius: 40px;
+  border: 2px solid #ff0033;
+  background: transparent;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.steps { text-align: left; font-size: 14px; margin: 15px 0; }
+.register-btn:hover {
+  background: #ff0033;
+  box-shadow: 0 0 25px rgba(255,0,51,0.8);
+  transform: scale(1.08);
+}
+
+.rules {
+  text-align: left;
+  margin-top: 25px;
+  color: #ccc;
+  font-size: 14px;
+}
 
 footer {
-  margin-top: 60px;
-  padding: 20px;
   text-align: center;
-  background: #b30000;
-  color: #ffffff;
+  padding: 20px;
+  background: #000000;
+  color: #777;
+  font-size: 14px;
 }
 
 @media (max-width: 600px) {
-  header h1 { font-size: 26px; }
-  button { width: 100%; }
+  header h1 { font-size: 30px; }
+  header p { font-size: 16px; }
+  .cta-btn { width: 100%; }
 }
 
   </style>
 </head>
 <body><header>
-  <h1>🔥 Free Fire Paid Tournament 🔥</h1>
-  <p class="highlight">Entry Fee ₹5 • Only 30 Slots Available</p>
-</header><div class="container">
+  <h1>🔥 Masters Arena 🔥</h1>
+  <p>Free Fire Paid Tournament • ₹5 Entry • Only 30 Slots</p>
+  <a href="#register"><button class="cta-btn">Join the Battle</button></a>
+</header><section id="register">
   <div class="card">
-    <h2>Join & Prove Your Skills</h2>
-    <p>Fast registration • Fair play • Exciting rewards</p>
-    <button onclick="openPopup()">🚀 Join Tournament</button>
-    <p class="note">Registration closes automatically once slots are filled</p>
-  </div>
-</div><div class="popup" id="paymentPopup">
-  <div class="popup-content">
-    <h2>Complete Registration</h2><div class="steps">
-  <p>✅ Pay ₹5 via UPI</p>
-  <p>✅ Take payment screenshot</p>
-  <p>✅ Fill Google Form</p>
+    <h2>Safe Tournament Registration</h2>
+    <p>Register first. Payment will be requested only if you are selected.</p><a href="https://forms.gle/YOUR_GOOGLE_FORM_LINK" target="_blank">
+  <button class="register-btn">Register Now</button>
+</a>
+
+<div class="rules">
+  <ul>
+    <li>Only first 30 valid registrations are selected</li>
+    <li>Selected players receive UPI payment link via WhatsApp</li>
+    <li>Entry Fee: ₹5</li>
+    <li>Room ID & password shared before match</li>
+    <li>No refunds after room details are shared</li>
+  </ul>
 </div>
 
-<a href="upi://pay?pa=7094021400@pthdfc&pn=FreeFireTournament&am=5&cu=INR" target="_blank">
-  <button>💳 Pay ₹5 Now</button>
-</a>
-
-<a href="https://forms.gle/YOUR_GOOGLE_FORM_LINK" target="_blank">
-  <button>📝 Fill Registration Form</button>
-</a>
-
-<button onclick="closePopup()">❌ Close</button>
-
   </div>
-</div><footer>
-  <p>© 2025 Free Fire Tournament • Powered by GitHub Pages</p>
-</footer><script>
-  function openPopup() {
-    document.getElementById('paymentPopup').style.display = 'flex';
-  }
-  function closePopup() {
-    document.getElementById('paymentPopup').style.display = 'none';
-  }
-</script></body>
+</section><footer>
+  © 2025 Masters Arena • Fair Play • Gaming Community
+</footer></body>
 </html>
