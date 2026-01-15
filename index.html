@@ -11,16 +11,17 @@
       background: radial-gradient(circle at top, #1a0000, #000000);
       color: #ffffff;
       overflow-x: hidden;
-    }header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: linear-gradient(135deg, #b30000, #ff0033);
-  animation: glowBG 6s infinite alternate;
-  padding: 20px;
+    }
+   header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, #b30000, #ff0033);
+      animation: glowBG 6s infinite alternate;
+      padding: 20px;
 }
 
 @keyframes glowBG {
@@ -100,6 +101,7 @@ section {
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .register-btn:hover {
@@ -129,8 +131,50 @@ footer {
     padding: 10px 5px;
     border-radius: 2em;
 }
+h4{
+    color: #ff0033;
+}
+.QR{
+    text-decoration: none;
+    color : #ff0033;
+}
+.QR-POPUP{
+    background: rbga(0,0,0,0.10);
+    position: fixed;
+    top: 0;
+    left:0;
+    right: 0;
+    bottom:0;
     
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-event: none;
+}
+.QR-POPUP.show{
+    opacity : 1;
+    pointer-event: auto;
+}
+.QR-POPUP-in{
+    background: #ff0033;
+    padding:24px;
+    border-radius : 20px;
+    
+}
+.QR-POPUP img{
+    width: 15em;
+    display: flex;
+    flex-direction: row;
+}
+.QR-POPUP button{
+    position: relative;
+    margin-left: 14vh;
+    margin-top: 2vh;
+    padding:7px;
+    background : white;
+    
+}
 @media (max-width: 600px) {
   header h1 { font-size: 30px; }
   header p { font-size: 16px; }
@@ -141,19 +185,42 @@ footer {
 </head>
 <body><section id="registration" class="section">
   <h1>Masters Arena – Free Fire Tournament</h1>
-  <p>Entry Fee: ₹5 | Only 30 Players</p>
+  <h4>pay after the registration</h4>
+  <p>Entry Fee: ₹5</p>
   <a class="register-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdqnATbb6w-8RnlE8CUzdRnmex9GCx3kU_EYxtZwyUOOixAog/viewform?usp=dialog" target="_blank">Register Now</a>
 </section><section id="payment" class="section">
   <h2>Payment Section</h2>
-  <p>Pay only if you are selected (First 30 players)</p>
+  
+  <p>Pay only if you registered</p>
+  <h4>Money will be refunded automatically if there is not enough players</h4>
   <p><strong>Entry Fee:</strong> ₹5</p>
-  <p><strong>UPI ID:</strong> mastersarena@paytm</p>
-  <button class="register-btn" onclick="payNow()">Pay ₹5 Now</button>
-  <p class="note">After payment, send screenshot on this button below.</p>
-  <a href="" id="ss">send screenshot</a>
-</section><script>
-function payNow() {
-  window.location.href = "upi://pay?pa=7094021400@pthdfc&pn=MastersArena&am=5&cu=INR";
+  <a href="pay.html"><button class="register-btn" onclick="payNow()">Pay ₹5 Now</button></a>
+  <p>Any trouble? just pay with upi scanner</p>
+  <a href="" id="QR" class="QR">Get QR code</a>
+  <p class="note">After payment, upload your details below on this button👇.(for further confirmation)</p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScz-tIXlaDilIT1cTUQcXSHHUvqPAh8XdOGviuo2nRA1AAJeA/viewform" id="ss">send screenshot</a>
+  <div id="QR-POPUP" class="QR-POPUP">
+      <div id="QR-POPUP-in" class="QR-POPUP-in">
+          <img src="QR code.jpg" alt="">
+          <button id="close-btn">close</button>
+      </div>
+  </div>
+</section>
+<script>
+    const open = document.getElementById('QR');
+    const modal = document.getElementById('QR-POPUP');
+    const close = document.getElementById('close-btn');
+    
+    open.addEventListener('click',() => {
+        modal.classList.add('show');
+    });
+    close.addEventListener('click',() => {
+        modal.classList.remove('show');
+    });
+    
+    function payNow() {
+      window.location.href =       "upi://pay?pa=mastersarena@paytm&pn=MastersArena&am=5&cu=INR";
+  QR.addEventListner
 }
 </script></body>
 </html>
