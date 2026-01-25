@@ -2,200 +2,174 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Fire Tournament</title>
+  <title>Masters Arena | Free Fire Tournament</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
+    * { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body {
       margin: 0;
-      padding: 0;
-      font-family: Arial, Helvetica, sans-serif;
-    }body {
-  background-color: #ffffff;
-  color: #111;
+      background: radial-gradient(circle at top, #1a0000, #000000);
+      color: #ffffff;
+      overflow-x: hidden;
+    }header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #b30000, #ff0033);
+  animation: glowBG 6s infinite alternate;
+  padding: 20px;
 }
 
-header {
-  background-color: #d60000;
-  color: white;
-  padding: 20px;
-  text-align: center;
+@keyframes glowBG {
+  from { box-shadow: inset 0 0 40px rgba(255,0,0,0.4); }
+  to { box-shadow: inset 0 0 80px rgba(255,0,0,0.8); }
 }
 
 header h1 {
-  font-size: 28px;
+  font-size: 42px;
+  margin-bottom: 10px;
+  animation: fadeDown 1.2s ease;
 }
 
 header p {
-  margin-top: 8px;
-  font-size: 14px;
+  font-size: 18px;
+  opacity: 0.95;
+  animation: fadeUp 1.4s ease;
 }
 
-.container {
+@keyframes fadeDown {
+  from { transform: translateY(-40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.cta-btn {
+  margin-top: 30px;
+  padding: 16px 40px;
+  font-size: 18px;
+  border-radius: 60px;
+  border: none;
+  cursor: pointer;
+  background: #ffffff;
+  color: #b30000;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(255,255,255,0.6);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 15px rgba(255,255,255,0.4); }
+  50% { transform: scale(1.08); box-shadow: 0 0 30px rgba(255,255,255,0.8); }
+  100% { transform: scale(1); box-shadow: 0 0 15px rgba(255,255,255,0.4); }
+}
+
+section {
+  padding: 70px 20px;
   max-width: 1100px;
   margin: auto;
-  padding: 20px;
 }
 
-.tournament-card {
-  border: 2px solid #d60000;
-  border-radius: 12px;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  align-items: center;
-}
-
-.tournament-info h2 {
-  color: #d60000;
-  margin-bottom: 10px;
-}
-
-.tournament-info p {
-  margin: 6px 0;
-  font-size: 15px;
-}
-
-.stats {
-  display: flex;
-  gap: 15px;
-  margin-top: 15px;
-  flex-wrap: wrap;
-}
-
-.stat-box {
-  border: 1px solid #d60000;
-  border-radius: 8px;
-  padding: 10px 15px;
+.card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,0,0,0.4);
+  border-radius: 20px;
+  padding: 35px;
   text-align: center;
-  min-width: 120px;
+  box-shadow: 0 0 25px rgba(255,0,0,0.3);
+  animation: fadeUp 1.2s ease;
 }
 
-.stat-box strong {
-  display: block;
-  color: #d60000;
-  font-size: 18px;
-}
+.card h2 { margin-bottom: 10px; }
 
-.action {
-  text-align: center;
-}
+.card p { color: #ddd; }
 
-.price {
-  font-size: 26px;
-  color: #d60000;
-  margin-bottom: 10px;
-}
-
-.btn {
-  background-color: #d60000;
-  color: white;
-  border: none;
-  padding: 14px 24px;
+.register-btn {
+  margin-top: 25px;
+  padding: 14px 32px;
+  border-radius: 40px;
+  border: 2px solid #ff0033;
+  background: transparent;
+  color: #ffffff;
   font-size: 16px;
-  border-radius: 8px;
   cursor: pointer;
-  width: 100%;
-  max-width: 260px;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
-.btn:hover {
-  background-color: #b00000;
+.register-btn:hover {
+  background: #ff0033;
+  box-shadow: 0 0 25px rgba(255,0,51,0.8);
+  transform: scale(1.08);
 }
 
 .rules {
-  margin-top: 30px;
-  background: #fff5f5;
-  border-left: 5px solid #d60000;
-  padding: 15px;
-  border-radius: 6px;
-}
-
-.rules h3 {
-  color: #d60000;
-  margin-bottom: 8px;
-}
-
-.rules ul {
-  padding-left: 18px;
+  text-align: left;
+  margin-top: 25px;
+  color: #ccc;
   font-size: 14px;
 }
 
 footer {
-  margin-top: 40px;
-  background-color: #111;
-  color: #fff;
   text-align: center;
-  padding: 15px;
-  font-size: 13px;
+  padding: 20px;
+  background: #000000;
+  color: #777;
+  font-size: 14px;
+}
+#ss{
+    color: white;
+    text-decoration: none;
+    background: #ff0033;
+    padding: 10px 5px;
+    border-radius: 2em;
+}
+h4{
+    color: #ff0033;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .tournament-card {
-    grid-template-columns: 1fr;
-  }
-
-  header h1 {
-    font-size: 22px;
-  }
-
-  .price {
-    font-size: 22px;
-  }
+@media (max-width: 600px) {
+  header h1 { font-size: 30px; }
+  header p { font-size: 16px; }
+  .cta-btn { width: 100%; }
 }
+
+
+    
+
+
+
 
   </style>
 </head>
-<body>  <header>
-    <h1>Free Fire Online Tournament</h1>
-    <p>Skill-Based Match | Fair Play Only | 18+</p>
-  </header>  <div class="container"><div class="tournament-card">
-  <div class="tournament-info">
-    <h2>Free Fire Solo Match</h2>
-    <p><strong>Game:</strong> Garena Free Fire</p>
-    <p><strong>Mode:</strong> Solo</p>
-    <p><strong>Total Slots:</strong> 30 Players</p>
-    <p><strong>Prize:</strong> Winner Takes Cash Prize</p>
-
-    <div class="stats">
-      <div class="stat-box">
-        <strong>₹5</strong>
-        Entry Fee
-      </div>
-      <div class="stat-box">
-        <strong>30</strong>
-        Players
-      </div>
-      <div class="stat-box">
-        <strong>1</strong>
-        Winner
-      </div>
-    </div>
-  </div>
-
-  <div class="action">
-    <div class="price">Enter for ₹5</div>
-    <a href="https://forms.gle/YOUR_FORM_LINK" target="_blank">
-      <button class="btn">Play Free Fire Tournament</button>
-    </a>
-    <p style="margin-top:10px;font-size:13px;">Room ID & Password will be shared after verification</p>
-  </div>
-</div>
-
-<div class="rules">
-  <h3>Important Rules</h3>
-  <ul>
-    <li>This is a skill-based Free Fire tournament.</li>
-    <li>Entry fee is ₹5 per player.</li>
-    <li>Only 30 players allowed per match.</li>
-    <li>No refunds once the match starts.</li>
-    <li>Winner prize will be sent via UPI.</li>
-    <li>Organizer's decision will be final.</li>
-  </ul>
-</div>
-
-  </div>  <footer>
-    © 2025 Free Fire Tournament Platform | No Gambling | Fair Play
-  </footer></body>
-</html>
+<body><section id="registration" class="section">
+  <h1>Masters Arena – Free Fire Tournament</h1>
+  <h4>pay after the registration</h4>
+  <p>Entry Fee: ₹5</p>
+  <a class="register-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdqnATbb6w-8RnlE8CUzdRnmex9GCx3kU_EYxtZwyUOOixAog/viewform?usp=dialog" target="_blank">Register Now</a>
+</section><section id="payment" class="section">
+  <h2>Payment Section</h2>
+  
+  <p>Pay only if you registered</p>
+  <h4>Money will be refunded automatically if there is not enough players</h4>
+  <p><strong>Entry Fee:</strong> ₹5</p>
+  
+  <button class="register-btn" onclick="payNow()">Pay ₹5 Now</button>
+  <p class="note">After payment, upload your details below on this button👇.(for further confirmation)</p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScz-tIXlaDilIT1cTUQcXSHHUvqPAh8XdOGviuo2nRA1AAJeA/viewform" id="ss">payment completed? </></a>
+  <div 
+</section>
+<script>
+    
+      function payNow() {
+      window.location.href =       "upi://pay?pa=7094021400@pthdfc&pn=MastersArena&am=5&cu=INR";
+ 
+}
+</script></body>
+  </html>
